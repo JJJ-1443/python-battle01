@@ -50,8 +50,12 @@ class Monster(Character):
 os.system('cls')
 name = input('플레이어의 이름을 입력해주세요 : ')
 player = Player(name, 100, 60, 20, 30)
-monster = Monster('슬라임', 200, 10)
-
+monster_list = [Monster('슬라임', 100, 10),
+                Monster('주황버섯', 200, 20),
+                Monster('골렘', 300, 30),]
+monster_dict = {i: x for i, x in enumerate(monster_list, 1)}
+monster_select = int(input('몬스터를 선택해주세요. 1:슬라임 2:주황버섯, 3:골렘'))
+monster = monster_dict[monster_select]
 while player.hp > 0 or monster.hp > 0:
     if player.hp == 0:
         print('패배')
